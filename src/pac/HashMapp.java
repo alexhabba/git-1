@@ -1,24 +1,27 @@
 package pac;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 public class HashMapp<T, E> {
-    private List<T> listT;
-    private List<E> listE;
+    private T key;
+    private E value;
+    private HashMapp<T, E> lch;
+    private HashMapp<T, E> rch;
 
-    public HashMapp() {
-        this.listT = new ArrayList<>();
-        this.listE = new ArrayList<>();
-    }
 
-    public static class Mapp {
-        private Mapp root;
-        private Mapp leftChild;
-        private Mapp rightChild;
-        private boolean lc;
-        private boolean rc;
+class Mapp<T, E> {
+
+    List<HashMapp<T, E>> list = new ArrayList<>();
+
+    void add(T t, E e) {
+        HashMapp<T, E> hashMapp = new HashMapp<>();
+        hashMapp.key = t;
+        hashMapp.value = e;
+        list.add(hashMapp);
     }
 
 }
-
+}
